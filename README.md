@@ -1,10 +1,5 @@
-# 실시간 티켓 예매 시스템 (Real-Time Ticket Booking System)
 # 🎫 실시간 티켓 예매 시스템 (Real-Time Ticket Booking System)
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Java Version](https://img.shields.io/badge/java-17-blue)
-![Spring Boot](https://img.shields.io/badge/spring_boot-3.2.0-green)
-![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 ## 📖 프로젝트 개요
 실시간 공연/이벤트 티켓 예매 시스템으로, 사용자는 공연 정보를 확인하고, 좌석을 선택하여 예매할 수 있습니다.  
@@ -17,6 +12,26 @@
 - 예매 상태 관리 (PENDING, CONFIRMED, CANCELED)
 - 사용자 권한(Role) 관리
 - 대용량 트래픽 처리 및 동시성 관리
+
+1. Auth
+   JWT 기반 로그인/회원가입
+   ROLE: USER / ADMIN
+- 회원가입(POST) /api/auth/signup
+- 로그인(POST) /api/auth/login
+
+2. Show
+   공연/좌석 정보 등록 및 조회
+   관리자만 공연 등록 가능
+- 공연 등록(POST) /api/shows
+- 공연 조회(GET) /api/shows
+- 좌석 조회(GET) /api/seats/{showId}
+
+3. Reservation
+   좌석 예매, 취소, 조회
+- 좌석 예매(POST) /api/tickets/reserve , /api/tickets/confirm
+- 좌석 취소(PATCH) /api/tickets/cancel
+- 좌석 조회(GET) /api/tickets/available
+- 예매 조회(GET) /api/tickets/my-bookings
 
 ## 🛠️ 기술 스택
 - **Backend:** Java 17, Spring Boot, Spring Security, JPA
